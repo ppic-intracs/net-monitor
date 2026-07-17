@@ -104,7 +104,16 @@
                         const waktuLog = new Date(matchedLog.waktu);
                         const selisihMenit = (currentTime - waktuLog) / (1000 * 60);
 
-                        formatWaktu = waktuLog.toLocaleTimeString('id-ID', {
+                        const dd = String(waktuLog.getDate()).padStart(2, '0');
+                        const mm = String(waktuLog.getMonth() + 1).padStart(2, '0'); // Bulan dimulai dari 0
+                        const yyyy = waktuLog.getFullYear();
+                        
+                        const hh = String(waktuLog.getHours()).padStart(2, '0');
+                        const min = String(waktuLog.getMinutes()).padStart(2, '0');
+                        
+                        formatWaktu = `${dd}-${mm}-${yyyy} ${hh}:${min}`;
+
+                        //formatWaktu = waktuLog.toLocaleTimeString('id-ID', {
                             hour: '2-digit',
                             minute: '2-digit'
                         }) + " | " + waktuLog.toLocaleDateString('id-ID', {
